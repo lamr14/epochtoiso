@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+  <dict>
+  	<key>CFBundleName</key>
+  	<string>Epoch to ISO</string>
+  	<key>CFBundleIdentifier</key>
+  	<string>net.stomer.epochtoiso</string>
+    <key>LBScripts</key>
+    <dict>
+      <key>LBDefaultScript</key>
+      <dict>
+        <key>LBScriptName</key>
+        <string>epoch.py</string>
+        <key>LBRequiresArgument</key>
+        <true/>
+        <key>LBReturnsResult</key>
+        <true/>
+        <key>LBResultType</key>
+        <string>string</string>
+        <key>LBAcceptedArgumentTypes</key>
+        <array>
+          <string>string</string>
+        </array>
+      </dict>
+    </dict>
+    <key>LBDescription</key>
+    <dict>
+      <key>LBAuthor</key>
+      <string>Paul Grave</string>
+      <key>LBTwitter</key>
+      <string>paulgrav</string>
+      <key>LBSummary</key>
+      <string>Converts a 10-digit UNIX timestamp to an ISO formatted datetime string</string>
+    </dict>
+  </dict>
+</plist>
