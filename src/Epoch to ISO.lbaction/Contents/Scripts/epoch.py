@@ -8,11 +8,21 @@ import json
 items = []
 
 item = {}
-try:
-    item['title'] = datetime.datetime.fromtimestamp(int(sys.argv[1])).isoformat()
-except IndexError:
-    pass
+
+def isoformat(matchobj):
+    if matchobj.group(0):
+        timestamp = matchobj.group(0)
+        try:
+            return datetime.datetime.fromtimestamp(int(timestamp)).isoformat()
+        except IndexError:
+            return timestamp
+        except ValueError:
+            return timestamp
     
+    return timestamp
+
+item = {"title": re.sub('\d{8}', isoformat, sys.argv[1])}
+
 items.append(item)
 
 print json.dumps(items)
