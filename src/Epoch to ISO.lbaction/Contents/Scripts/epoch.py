@@ -10,18 +10,20 @@ items = []
 item = {}
 
 def isoformat(matchobj):
-    if matchobj.group(0):
-        timestamp = matchobj.group(0)
+    if matchobj.group(2):
+        timestamp = matchobj.group(2)
+        pre = matchobj.group(1)
+        post = matchobj.group(3)
         try:
-            return datetime.datetime.fromtimestamp(int(timestamp)).isoformat()
+            return pre + datetime.datetime.fromtimestamp(int(timestamp)).isoformat() + post
         except IndexError:
-            return timestamp
+            return matchobj.group(0)
         except ValueError:
-            return timestamp
+            return matchobj.group(0)
     
-    return timestamp
+    return matchobj.group(0)
 
-item = {"title": re.sub('\D?(\d{10})\D', isoformat, sys.argv[1])}
+item = {"title": re.sub('(\D?)(\d{10})(\D)', isoformat, sys.argv[1])}
 
 items.append(item)
 
