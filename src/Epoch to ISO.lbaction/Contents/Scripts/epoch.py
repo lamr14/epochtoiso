@@ -21,7 +21,7 @@ def isoformat(matchobj):
     
     return timestamp
 
-item = {"title": re.sub('\d{8}', isoformat, sys.argv[1])}
+item = {"title": re.sub('\D?(\d{10})\D', isoformat, sys.argv[1])}
 
 items.append(item)
 
